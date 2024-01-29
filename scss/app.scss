@@ -1,0 +1,190 @@
+.container-position {
+  margin: 20px auto;
+  height: 80vh;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
+}
+
+.toggle {
+  &-dark {
+    max-width: 14px;
+  }
+
+  &-light {
+    max-width: 18px;
+  }
+
+  &-theme {
+    opacity: 0;
+    position: absolute;
+  }
+
+  &-checkbox {
+    width: 60px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    box-shadow: #00000020 0 0 10px;
+  }
+
+  &-ball {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+    box-shadow: #00000020 0 0 10px;
+  }
+}
+
+.total-div {
+  position: sticky;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 30px;
+  box-shadow: 0 0 10px #00000015;
+  border-radius: 20px;
+}
+
+.list-items {
+  position: inherit;
+  height: 40vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
+}
+
+.divider-zig {
+  width: 100px;
+}
+
+.fontfamily {
+  &-primary {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+  }
+
+  &-headline {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+  }
+
+  &-result {
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &-second {
+    font-family: "Alata", sans-serif;
+  }
+}
+
+.button-settings {
+  height: 50px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.illustration {
+  &-top {
+    position: relative;
+  }
+
+  &-bottom {
+    position: relative;
+  }
+
+  &-boy {
+    position: absolute;
+    bottom: -15px;
+    max-width: 300px;
+  }
+
+  &-girl {
+    position: absolute;
+    max-width: 300px;
+    top: 20px;
+    right: 5px;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+//MIDDLE SCREENS
+@media only screen and (max-width: 1023px) {
+  .container-position {
+    margin: 20px;
+    height: 96vh;
+  }
+}
+
+//SMALL SCREENS
+@media only screen and (max-width: 640px) {
+  .container-position {
+    margin: 10px;
+    height: 84vh;
+  }
+
+  .illustration {
+    &-boy {
+      max-width: 120px;
+    }
+
+    &-girl {
+      max-width: 170px;
+      top: 235px;
+    }
+  }
+
+  .list-items {
+    height: 32vh;
+    flex-wrap: nowrap;
+  }
+
+  .fontfamily {
+    &-primary {
+      font-size: 14px;
+    }
+
+    &-headline {
+      font-size: 14px;
+    }
+  }
+
+  .input-budget {
+    max-width: 150px;
+  }
+
+  .calculator-container {
+    justify-content: space-between;
+  }
+}

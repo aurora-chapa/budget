@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+    <title>Budget</title>
+    <link rel="icon" type="image/x-icon" href="/src/img/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-100 transition-all ease-in-out dark:bg-darkone">
+    <!-- Budget bar -->
+    <div
+      class="calculator-container flex items-center total-div transition-all ease-in-out bg-white dark:bg-darktwo"
+    >
+      <!--Template switch-->
+      <div>
+        <input
+          type="checkbox"
+          class="toggle-theme"
+          id="chooseTheme"
+          onclick="changeTheme()"
+        />
+        <label
+          for="chooseTheme"
+          class="toggle-checkbox bg-white dark:bg-darktexttwo"
+        >
+          <img class="toggle-dark dark:invert" src="/src/img/moon.svg" />
+          <img class="toggle-light" src="/src/img/sun.svg" />
+          <span class="toggle-ball bg-white dark:bg-darktwo"></span>
+        </label>
+      </div>
+
+      <div class="flex items-center gap-lg">
+        <label
+          class="sm:text-sm fontfamily-headline text-600 dark:text-darktext"
+          for="budgetamount"
+          ><b>Your budget:</b></label
+        >
+        <input
+          type="number"
+          class="border-600 input-budget dark:border-darktexttwo border-2 p-sm rounded-2xl dark:bg-darktwo focus:outline-none dark:text-white focus:border-accent dark:focus:border-accent"
+          id="budgetamount"
+          placeholder="Ex. 1000"
+          autocomplete="off"
+        />
+
+        <button
+          class="bg-primary hover:bg-primarystrong pt-lg focus:bg-primarystrong button-settings rounded-xl justify-self-center"
+          id="button-amount"
+          onclick="setBudget()"
+        >
+          <img src="/src/img/send.svg" class="h-lg" />
+        </button>
+      </div>
+
+      <div class="flex-col gap-sm">
+        <p class="fontfamily-primary text-600 dark:text-darktext">
+          <b>Remaining:</b>
+        </p>
+        <p
+          class="fontfamily-result text-accent dark:text-accent"
+          id="remaining"
+        ></p>
+      </div>
+    </div>
+
+    <div
+      id="main-container"
+      class="blur-sm container-position transition-all ease-in-out bg-white dark:bg-darktwo shadow-lg overflow-y-auto p-lg border border-200 dark:border-darkone rounded-2xl max-w-screen-lg"
+    >
+      <!--Title-->
+      <div class="illustration-top">
+        <img
+          class="illustration-boy dark:opacity-40"
+          src="/src/img/bg-boy.png"
+        />
+
+        <h1
+          class="text-2xl text-center text-600 dark:text-darktext fontfamily-second mt-lg"
+          style="position: inherit"
+        >
+          Let's budget!
+        </h1>
+        <img
+          class="mx-auto m-lg divider-zig"
+          src="/src/img/divider.svg"
+          style="position: inherit"
+        />
+        <form
+          id="budget-form"
+          class="grid grid-cols-2 grid-rows-2 gap-xl mt-hg mb-md max-w-sm mx-auto"
+          style="position: inherit"
+          autocomplete="off"
+        >
+          <div class="flex flex-col">
+            <label
+              class="fontfamily-primary mb-sm text-600 dark:text-darktext"
+              for="expense"
+              ><b>Write your expense</b></label
+            >
+            <input
+              type="text"
+              class="border-600 dark:border-darktexttwo border-2 p-sm rounded-2xl dark:bg-darktwo focus:outline-none dark:text-white focus:border-accent dark:focus:border-accent"
+              id="expense"
+              placeholder="Ex. Dentist"
+              disabled
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label
+              class="fontfamily-primary mb-sm text-600 dark:text-darktext"
+              for="amount"
+              ><b>Value</b></label
+            >
+            <input
+              type="text"
+              class="border-600 dark:border-darktexttwo dark:bg-darktwo border-2 p-sm rounded-2xl focus:outline-none dark:text-white focus:border-accent dark:focus:border-accent"
+              id="amount"
+              placeholder="Ex. 300"
+              disabled
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="bg-primary enabled:hover:bg-primarystrong focus:bg-primarystrong col-span-2 button-settings rounded-xl justify-self-center mt-md"
+            id="button-form"
+            disabled
+          >
+            <b>Add expense</b>
+          </button>
+        </form>
+      </div>
+
+      <hr class="border border-200 dark:border-darktexttwo mb-lg" />
+
+      <!--Spendings-->
+      <div class="illustration-bottom">
+        <img
+          class="illustration-girl dark:opacity-40"
+          src="/src/img/bg-girl.png"
+        />
+        <p class="fontfamily-primary text-600 dark:text-darktext text-center">
+          <b>Your expenses</b>
+        </p>
+      </div>
+
+      <div
+        class="list-items flex flex-col gap-sm m-lg flex-wrap"
+        id="expenses-list"
+      ></div>
+    </div>
+
+    <script src="/project/js/app.js"></script>
+  </body>
+</html>
