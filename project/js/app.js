@@ -176,6 +176,7 @@ class UI {
 
     if (!budget) {
       budgetInput.classList.add("animate-bounce");
+      remaining.remove();
     } else {
       budgetInput.classList.remove("animate-bounce");
     }
